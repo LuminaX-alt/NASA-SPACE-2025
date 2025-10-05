@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<!-- saved from url=(0152)https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/7de8280968304e2c0c543a8fa4b433e4/c20e6794-3288-4f8d-9112-099b5f9ea026/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shark Habitat Prediction System - NASA Ocean Science</title>
+    <link rel="stylesheet" href="./Shark Habitat Prediction System - NASA Ocean Science_files/style.css">
+    <script src="./Shark Habitat Prediction System - NASA Ocean Science_files/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">🦈 Shark Habitat Prediction System</h1>
+                <p class="header-subtitle">Using NASA Satellite Data to Protect Ocean Ecosystems</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-tabs">
+        <div class="container">
+            <div class="tab-list">
+                <button class="tab-btn active" data-tab="learn">🎓 Learn</button>
+                <button class="tab-btn" data-tab="explore">🌊 Explore Data</button>
+                <button class="tab-btn" data-tab="track">📍 Track Sharks</button>
+                <button class="tab-btn" data-tab="protect">🛡️ Predict &amp; Protect</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Learn Tab -->
+            <section id="learn" class="tab-content active">
+                <div class="section-header">
+                    <h2>Why Sharks Matter for Ocean Health</h2>
+                    <p>Discover how sharks maintain the balance of marine ecosystems and why protecting them is crucial for ocean health.</p>
+                </div>
+                
+                <div class="learning-modules">
+                    <div class="module-card">
+                        <div class="module-icon" title="Click to learn more about this topic">🌊</div>
+                        <h3>The Ocean Food Web</h3>
+                        <p>Sharks are apex predators that control the populations of other marine species, maintaining the delicate balance of ocean ecosystems.</p>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="trophicChart" width="636" height="536" style="display: block; box-sizing: border-box; height: 268px; width: 318px;"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon" title="Click to learn more about this topic">🛰️</div>
+                        <h3>NASA Satellite Technology</h3>
+                        <p>PACE and SWOT missions provide real-time data on ocean conditions that affect where sharks feed and live.</p>
+                        <div class="satellite-info">
+                            <div class="satellite-item">
+                                <strong>PACE Mission:</strong> Tracks phytoplankton and ocean color
+                            </div>
+                            <div class="satellite-item">
+                                <strong>SWOT Mission:</strong> Measures sea surface height and ocean currents
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon" title="Click to learn more about this topic">🏷️</div>
+                        <h3>Smart Tagging Technology</h3>
+                        <p>Advanced tags track shark movements, depth, temperature, and feeding behaviors in real-time.</p>
+                        <div class="tag-features">
+                            <div class="feature">📍 GPS Location</div>
+                            <div class="feature">🌡️ Temperature</div>
+                            <div class="feature">📏 Depth</div>
+                            <div class="feature">🍽️ Feeding Events</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-indicator">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%;"></div>
+                    </div>
+                    <p>Progress: 1 of 4 sections completed</p>
+                </div>
+            </section>
+
+            <!-- Explore Data Tab -->
+            <section id="explore" class="tab-content">
+                <div class="section-header">
+                    <h2>Explore Real Satellite Data</h2>
+                    <p>Interact with live NASA satellite data to see how ocean conditions affect shark habitats.</p>
+                </div>
+                
+                <div class="data-explorer">
+                    <div class="map-section">
+                        <h3>Global Habitat Suitability Map</h3>
+                        <img src="./Shark Habitat Prediction System - NASA Ocean Science_files/5217957b.png" alt="Shark Habitat Suitability Map" class="habitat-map">
+                        <div class="map-legend">
+                            <div class="legend-item">
+                                <span class="legend-color high"></span>
+                                <span>High Suitability</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color medium"></span>
+                                <span>Medium Suitability</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color low"></span>
+                                <span>Low Suitability</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-star">⭐</span>
+                                <span>Foraging Hotspots</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="controls-section">
+                        <h3>Environmental Controls</h3>
+                        <div class="slider-controls">
+                            <div class="slider-group">
+                                <label for="chlorophyll-slider">Chlorophyll-a Level: <span id="chlorophyll-value">0.5</span> mg/m³</label>
+                                <input type="range" id="chlorophyll-slider" min="0" max="2" step="0.1" value="0.5" class="form-control">
+                            </div>
+                            
+                            <div class="slider-group">
+                                <label for="temperature-slider">Sea Surface Temperature: <span id="temperature-value">20</span>°C</label>
+                                <input type="range" id="temperature-slider" min="5" max="35" step="1" value="20" class="form-control">
+                            </div>
+                            
+                            <div class="slider-group">
+                                <label for="eddy-slider">Eddy Activity: <span id="eddy-value">0.05</span> m²/s²</label>
+                                <input type="range" id="eddy-slider" min="0" max="0.2" step="0.01" value="0.05" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="suitability-display">
+                            <h4>Habitat Suitability Score</h4>
+                            <div class="score-meter">
+                                <div class="score-bar">
+                                    <div class="score-fill" id="suitability-fill" style="width: 50%;"></div>
+                                </div>
+                                <span class="score-value" id="suitability-score">50%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hotspots-info">
+                    <h3>Current Foraging Hotspots</h3>
+                    <div class="hotspots-grid" id="hotspots-grid">
+                        <!-- Hotspots will be populated by JavaScript -->
+                    <div class="hotspot-card" title="Click to see detailed information about this foraging area">
+            <div class="hotspot-title">Hotspot 1: South Atlantic</div>
+            <div class="hotspot-coords">-41.7°, -47.8°</div>
+            <div class="hotspot-suitability">Suitability: 48%</div>
+            <div class="hotspot-points">30 data points</div>
+        </div><div class="hotspot-card" title="Click to see detailed information about this foraging area">
+            <div class="hotspot-title">Hotspot 2: North Atlantic</div>
+            <div class="hotspot-coords">31.8°, -65.8°</div>
+            <div class="hotspot-suitability">Suitability: 46%</div>
+            <div class="hotspot-points">48 data points</div>
+        </div><div class="hotspot-card" title="Click to see detailed information about this foraging area">
+            <div class="hotspot-title">Hotspot 3: Indian Ocean</div>
+            <div class="hotspot-coords">34.1°, 94.5°</div>
+            <div class="hotspot-suitability">Suitability: 46%</div>
+            <div class="hotspot-points">38 data points</div>
+        </div><div class="hotspot-card" title="Click to see detailed information about this foraging area">
+            <div class="hotspot-title">Hotspot 4: Central Pacific</div>
+            <div class="hotspot-coords">-16.1°, -138.5°</div>
+            <div class="hotspot-suitability">Suitability: 48%</div>
+            <div class="hotspot-points">37 data points</div>
+        </div><div class="hotspot-card" title="Click to see detailed information about this foraging area">
+            <div class="hotspot-title">Hotspot 5: Indo-Pacific</div>
+            <div class="hotspot-coords">-23.0°, 91.9°</div>
+            <div class="hotspot-suitability">Suitability: 46%</div>
+            <div class="hotspot-points">47 data points</div>
+        </div></div>
+                </div>
+            </section>
+
+            <!-- Track Sharks Tab -->
+            <section id="track" class="tab-content">
+                <div class="section-header">
+                    <h2>Smart Tag Shark Tracking</h2>
+                    <p>Follow a tagged shark's journey over 24 hours and see real-time data from smart sensors.</p>
+                </div>
+                
+                <div class="tracking-dashboard">
+                    <div class="tracking-map">
+                        <h3>24-Hour Movement Pattern</h3>
+                        <img src="./Shark Habitat Prediction System - NASA Ocean Science_files/1d032754.png" alt="Shark Movement Trajectory" class="trajectory-map">
+                        <div class="trajectory-legend">
+                            <div class="legend-item">
+                                <span class="legend-line"></span>
+                                <span>Movement Path</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-star">⭐</span>
+                                <span>Feeding Events</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sensor-data">
+                        <h3>Real-Time Sensor Readings</h3>
+                        <div class="sensor-grid">
+                            <div class="sensor-card" title="Real-time data from smart shark tags">
+                                <div class="sensor-icon">📍</div>
+                                <div class="sensor-info">
+                                    <h4>Current Location</h4>
+                                    <div class="sensor-value" id="current-location">25.1°N, 79.9°W</div>
+                                </div>
+                            </div>
+                            
+                            <div class="sensor-card" title="Real-time data from smart shark tags">
+                                <div class="sensor-icon">📏</div>
+                                <div class="sensor-info">
+                                    <h4>Depth</h4>
+                                    <div class="sensor-value" id="current-depth">45 m</div>
+                                </div>
+                            </div>
+                            
+                            <div class="sensor-card" title="Real-time data from smart shark tags">
+                                <div class="sensor-icon">🌡️</div>
+                                <div class="sensor-info">
+                                    <h4>Water Temperature</h4>
+                                    <div class="sensor-value" id="current-temp">22.1°C</div>
+                                </div>
+                            </div>
+                            
+                            <div class="sensor-card" title="Real-time data from smart shark tags">
+                                <div class="sensor-icon">🍽️</div>
+                                <div class="sensor-info">
+                                    <h4>Feeding Status</h4>
+                                    <div class="sensor-value" id="feeding-status" style="color: rgb(245, 158, 11);">Hunting</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-section">
+                            <h4>24-Hour Timeline</h4>
+                            <div class="timeline" id="shark-timeline"><div class="timeline-event">
+            <div class="timeline-time">12:00 AM</div>
+            <div class="timeline-description">Depth: 45m, Temp: 22.1°C</div>
+        </div><div class="timeline-event">
+            <div class="timeline-time">01:00 AM</div>
+            <div class="timeline-description">Depth: 67m, Temp: 21.8°C - 🍽️ Fed on small_fish</div>
+        </div><div class="timeline-event">
+            <div class="timeline-time">02:00 AM</div>
+            <div class="timeline-description">Depth: 32m, Temp: 22.5°C</div>
+        </div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="behavior-analysis">
+                    <h3>Behavior Analysis</h3>
+                    <div class="behavior-cards">
+                        <div class="behavior-card">
+                            <h4>Foraging Mode</h4>
+                            <p>Diving deep and moving slowly - actively hunting for prey</p>
+                            <div class="behavior-indicator active">ACTIVE</div>
+                        </div>
+                        <div class="behavior-card">
+                            <h4>Transit Mode</h4>
+                            <p>Swimming at surface level - traveling between feeding areas</p>
+                            <div class="behavior-indicator inactive">INACTIVE</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Predict & Protect Tab -->
+            <section id="protect" class="tab-content">
+                <div class="section-header">
+                    <h2>Predict Habitats &amp; Protect Sharks</h2>
+                    <p>Use environmental data to predict shark locations and learn about conservation efforts.</p>
+                </div>
+                
+                <div class="prediction-tools">
+                    <div class="prediction-panel">
+                        <h3>Habitat Prediction Model</h3>
+                        <div class="model-inputs">
+                            <div class="input-group">
+                                <label>Season:</label>
+                                <select id="season-select" class="form-control">
+                                    <option value="spring">Spring</option>
+                                    <option value="summer">Summer</option>
+                                    <option value="fall">Fall</option>
+                                    <option value="winter">Winter</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>Ocean Region:</label>
+                                <select id="region-select" class="form-control">
+                                    <option value="atlantic">North Atlantic</option>
+                                    <option value="pacific">North Pacific</option>
+                                    <option value="indian">Indian Ocean</option>
+                                    <option value="southern">Southern Ocean</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn--primary" id="predict-btn">Generate Prediction</button>
+                        
+                        <div class="prediction-results" id="prediction-results" style="display: none;">
+                            <h4>Prediction Results</h4>
+                            <div class="result-item">
+                                <span>Habitat Suitability:</span>
+                                <span class="result-value" id="predicted-suitability">72%</span>
+                            </div>
+                            <div class="result-item">
+                                <span>Confidence Level:</span>
+                                <span class="result-value" id="prediction-confidence">85%</span>
+                            </div>
+                            <div class="result-item">
+                                <span>Recommended Action:</span>
+                                <span class="result-value" id="recommended-action">Monitor closely</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="conservation-panel">
+                        <h3>Conservation Impact</h3>
+                        <div class="impact-stats">
+                            <div class="stat-card">
+                                <div class="stat-number">15%</div>
+                                <div class="stat-label">Improvement in protection efficiency</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Sharks tracked and protected</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Marine protected areas optimized</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conservation-actions">
+                            <h4>How This Helps Conservation:</h4>
+                            <ul>
+                                <li>Identify critical feeding areas for protection</li>
+                                <li>Track migration patterns for policy development</li>
+                                <li>Monitor ecosystem health through shark populations</li>
+                                <li>Guide sustainable fishing practices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-section">
+                    <h3>Test Your Knowledge</h3>
+                    <div class="quiz-container" id="quiz-container">
+                        <div class="quiz-question" id="quiz-question">What role do sharks play in ocean ecosystems?</div>
+                        <div class="quiz-options"><button class="quiz-option">Apex predators that maintain ecosystem balance</button><button class="quiz-option">Bottom feeders that clean the ocean floor</button><button class="quiz-option">Plant eaters that consume seaweed</button><button class="quiz-option">Passive swimmers with no ecological impact</button></div>
+                        <div class="quiz-feedback" id="quiz-feedback" style="display: none;">
+                            <p>Correct! Sharks are apex predators that control populations of other marine species, maintaining the delicate balance of ocean ecosystems.</p>
+                        </div>
+                        <div class="quiz-progress">
+                            <span>Question 1 of 3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-results" id="quiz-results" style="display: none;">
+                        <h4>Quiz Complete!</h4>
+                        <div class="final-score" id="final-score">You scored 3 out of 3!</div>
+                        <p>🎉 Excellent! You understand shark ecology and conservation.</p>
+                        <button class="btn btn--primary" id="share-results">Share Results</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 NASA Ocean Science Education Initiative. Data from PACE and SWOT missions.</p>
+            <div class="footer-links">
+                <a href="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/7de8280968304e2c0c543a8fa4b433e4/c20e6794-3288-4f8d-9112-099b5f9ea026/index.html#" target="_blank">Learn More About NASA Ocean Missions</a>
+                <a href="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/7de8280968304e2c0c543a8fa4b433e4/c20e6794-3288-4f8d-9112-099b5f9ea026/index.html#" target="_blank">Support Shark Conservation</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./Shark Habitat Prediction System - NASA Ocean Science_files/app.js"></script>
+
+</body></html>
